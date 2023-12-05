@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tofa7ashop</string>
+    <string name="login">login</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="tofa7ashop">tofa7ashop</string>
+</resources>

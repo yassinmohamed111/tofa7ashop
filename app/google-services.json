@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "472855706287",
+    "project_id": "tofa7ashop2023",
+    "storage_bucket": "tofa7ashop2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472855706287:android:42d64ab80239e5c443725a",
+        "android_client_info": {
+          "package_name": "com.example.tofa7ashop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjRqxTmXkCnH6X-yItpToaYKcA-jgtInQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
