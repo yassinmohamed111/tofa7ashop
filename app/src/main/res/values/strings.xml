@@ -4,4 +4,8 @@
     <string name="email">email</string>
     <string name="password">password</string>
     <string name="tofa7ashop">tofa7ashop</string>
+    <string name="already_a_member_log_in">Already a member? Log in</string>
+    <string name="register">Register</string>
+    <string name="security_question">Security Question</string>
+    <string name="phone">Phone</string>
 </resources>

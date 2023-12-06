@@ -41,7 +41,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/logEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -51,7 +51,7 @@
 
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/logPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -96,9 +96,12 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
         android:layout_below="@id/credentialsLayout"
-        android:layout_margin="16dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Login" />
 
     <!-- Register Text/Button -->
     <TextView
