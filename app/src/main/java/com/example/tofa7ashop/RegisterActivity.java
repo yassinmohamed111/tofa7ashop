@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText editTextemail , editTextPassword  , editTextphone , editTextname , editTextsec ;
+    EditText editTextemail , editTextPassword  , editTextphone , editTextname  ;
     Button regBtn ;
     TextView textView ;
     FirebaseAuth mAuth ;
@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         editTextphone = findViewById(R.id.regPhone) ;
         regBtn = findViewById(R.id.buttonRegister);
         mAuth = FirebaseAuth.getInstance();
-        editTextsec = findViewById(R.id.regSec);
+
         textView = findViewById(R.id.textViewLogin);
 
 
@@ -52,12 +52,12 @@ public class RegisterActivity extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name  , email , password , phone , sec ;
+                String name  , email , password , phone  ;
                 name  = String.valueOf(editTextname.getText());
                 email  = String.valueOf(editTextemail.getText());
                 password  = String.valueOf(editTextPassword.getText());
                 phone  = String.valueOf(editTextphone.getText());
-                sec  = String.valueOf(editTextsec.getText());
+
 
                 if(TextUtils.isEmpty(email) ){
                     Toast.makeText(RegisterActivity.this , "Enter Email please" ,Toast.LENGTH_SHORT).show() ;
@@ -68,15 +68,11 @@ public class RegisterActivity extends AppCompatActivity {
                     return ;
                 }
                 if(TextUtils.isEmpty(phone) ){
-                    Toast.makeText(RegisterActivity.this , "Enter password please" ,Toast.LENGTH_SHORT).show() ;
+                    Toast.makeText(RegisterActivity.this , "Enter phone please" ,Toast.LENGTH_SHORT).show() ;
                     return ;
                 }
                 if(TextUtils.isEmpty(name) ){
                     Toast.makeText(RegisterActivity.this , "Enter name please" ,Toast.LENGTH_SHORT).show() ;
-                    return ;
-                }
-                if(TextUtils.isEmpty(sec)  ){
-                    Toast.makeText(RegisterActivity.this , "Enter security question please" ,Toast.LENGTH_SHORT).show() ;
                     return ;
                 }
 
