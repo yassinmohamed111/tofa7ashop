@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView username;
     TextView userphone;
+    TextView useresm;
     FirebaseAuth mAuth;
     SQLiteDatabase mDatabase;
 
@@ -43,9 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
             // Retrieve and display phone from SQLite database
             String phone = getPhoneFromDatabase(firebaseUserId);
+            String name = getnameFromDatabase(firebaseUserId);
             if (phone != null) {
                 userphone = findViewById(R.id.userPhone);
+                useresm = findViewById(R.id.useresm);
                 userphone.setText("Phone: " + phone);
+                useresm.setText("name :" + name);
             } else {
                 Toast.makeText(this, "Phone not found in the database", Toast.LENGTH_SHORT).show();
             }
@@ -93,6 +97,24 @@ public class MainActivity extends AppCompatActivity {
         cursor.close();
         return phone;
     }
+    private String getnameFromDatabase(String firebaseUserId) {
+        String name = null;
+
+        Cursor cursor = mDatabase.rawQuery("SELECT name FROM users WHERE firebase_user_id = ?", new String[]{firebaseUserId});
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("name");
+
+            // Check if the column index is valid (not -1)
+            if (columnIndex != -1) {
+                name = cursor.getString(columnIndex);
+            } else {
+                // Handle the case where the column is not found
+                Toast.makeText(this, "Phone column not found in the database", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        cursor.close();
+        return name;
+    }
 
 }
-
