@@ -14,18 +14,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class profile extends AppCompatActivity {
 
     TextView username;
     TextView userphone;
     TextView useresm;
+    TextView userbirthdate ;
     FirebaseAuth mAuth;
     SQLiteDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.profile);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = openOrCreateDatabase("users", MODE_PRIVATE, null);
@@ -45,11 +46,14 @@ public class MainActivity extends AppCompatActivity {
             // Retrieve and display phone from SQLite database
             String phone = getPhoneFromDatabase(firebaseUserId);
             String name = getnameFromDatabase(firebaseUserId);
+            String birth = getbirthFromDatabase(firebaseUserId);
             if (phone != null) {
                 userphone = findViewById(R.id.userPhone);
                 useresm = findViewById(R.id.useresm);
+                userbirthdate = findViewById(R.id.userBirth);
                 userphone.setText("Phone: " + phone);
                 useresm.setText("name :" + name);
+                userbirthdate.setText("Birthdate : " + birth);
             } else {
                 Toast.makeText(this, "Phone not found in the database", Toast.LENGTH_SHORT).show();
             }
@@ -109,12 +113,33 @@ public class MainActivity extends AppCompatActivity {
                 name = cursor.getString(columnIndex);
             } else {
                 // Handle the case where the column is not found
-                Toast.makeText(this, "Phone column not found in the database", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "name column not found in the database", Toast.LENGTH_SHORT).show();
             }
         }
 
         cursor.close();
         return name;
     }
+
+    private String getbirthFromDatabase(String firebaseUserId) {
+        String birthdate = null;
+
+        Cursor cursor = mDatabase.rawQuery("SELECT birthdate FROM users WHERE firebase_user_id = ?", new String[]{firebaseUserId});
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("birthdate");
+
+            // Check if the column index is valid (not -1)
+            if (columnIndex != -1) {
+                birthdate = cursor.getString(columnIndex);
+            } else {
+                // Handle the case where the column is not found
+                Toast.makeText(this, "birthdate column not found in the database", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        cursor.close();
+        return birthdate;
+    }
+
 
 }
