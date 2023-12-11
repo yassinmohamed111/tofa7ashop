@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tofa7ashop"
+            android:text="Tofa7a Store"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
@@ -74,6 +74,7 @@
                 android:id="@+id/rememberMeCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@android:color/darker_gray"
                 android:text="Remember me"/>
 
             <TextView
@@ -102,6 +103,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/gray"
         android:text="Login" />
 
     <!-- Register Text/Button -->
