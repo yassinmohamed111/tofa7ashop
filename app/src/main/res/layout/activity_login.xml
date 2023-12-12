@@ -114,9 +114,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="763dp"
-        android:layout_marginEnd="141dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="724dp"
+        android:layout_marginEnd="148dp"
         android:text="Need to register?"
         android:textColor="@color/black" />
 
